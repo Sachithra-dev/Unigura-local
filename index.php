@@ -30,16 +30,15 @@
 <body>
     <div class="container">
         <h1>User Registration System</h1>
-        <h2><a href="loggedInPage.php">Home Page</a></h2>
         <form action = "" method = "post">
             <div class="error"><?php echo $error; ?></div>
-            <input type="text" name = "name" placeholder="user name"><br><br>
-            <input type="email" name = "email" placeholder="email"><br><br>
-            <input type="password" name = "password" placeholder="password"><br><br>
-            <input type="password" name = "repeatpassword" placeholder="Repeat Password"><br><br>
-            <label for="checkbox">Keep me logged in</label>
-            <input type="checkbox" name = "stayLoggedIn" value= "1"><br><br>
-            <input type="submit" name = "signup" value="Sign Up"><br><br>
+            <input class = "username" type="text" name = "name" placeholder="user name"><br><br>
+            <input class = "email" type="email" name = "email" placeholder="email"><br><br>
+            <input class = "password" type="password" name = "password" placeholder="password"><br><br>
+            <input class = "repeatpassword" type="password" name = "repeatpassword" placeholder="Repeat Password"><br><br>
+            <label class ="checkboxlabel" for="checkbox">Keep me logged in</label>
+            <input class ="checkbox" type="checkbox" name = "stayLoggedIn" value= "1"><br><br>
+            <input class="submit" type="submit" name = "signup" value="Sign Up"><br><br>
             <p>Have account already?<a href='login.php'>login</a></p>
         </form>
     </div>
