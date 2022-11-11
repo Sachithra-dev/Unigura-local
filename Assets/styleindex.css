@@ -28,8 +28,20 @@ h1 {
     font-size: 40px;
     text-align: center;
     color: #000000;
+    
+}
 
-   
+.error{
+    box-sizing: border-box;
+    position: absolute;
+    width:80%;
+    height: 40px;
+    left: 26px;
+    top: 170px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 17px;
+    padding-left: 12px;
 
 }
 
