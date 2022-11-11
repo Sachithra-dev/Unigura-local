@@ -197,8 +197,8 @@
     if(array_key_exists('next',$_POST)){
         include('linkdb.php');
         //taking data from user 
-        $FirstName = mysqli_real_escape_string($linkDB,$_POST['FirstName']);
-        $LastName = mysqli_real_escape_string($linkDB,$_POST['LastName']);
+        $firstName = mysqli_real_escape_string($linkDB,$_POST['FirstName']);
+        $lastName = mysqli_real_escape_string($linkDB,$_POST['LastName']);
         $telephone = mysqli_real_escape_string($linkDB,$_POST['telephone']);
         $letterboxnumber = mysqli_real_escape_string($linkDB,$_POST['letterboxnumber']);
         $street = mysqli_real_escape_string($linkDB,$_POST['street']);
@@ -242,7 +242,7 @@
             $error4 = "<b>There was error(s)in your form".$error4;
         }
         else{
-            $query = "INSERT INTO tutor (First_Name,Last_Name,Telephone,LetterBox_Number,Street,City,Subjects,Modes,Medium) VALUES ('$FirstName','$LastName','$telephone','$letterboxnumber','$street','$city','$subject','$modes','$medium')";
+            $query = "INSERT INTO tutor (First_Name,Last_Name,Telephone,LetterBox_Number,Street,City,Subjects,Modes,Medium) VALUES ('$firstName','$lastName','$telephone','$letterboxnumber','$street','$city','$subject','$modes','$medium')";
             $result = mysqli_query($linkDB,$query);
             if(!$result){
                 $error4 = "You are not logged in - Try again Later";
