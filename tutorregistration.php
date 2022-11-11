@@ -28,22 +28,27 @@
 </head>
 
 <body>
-    <div class="container">
+   <div class="container">
         <h1>Tutor Details</h1>
+        <div class="form-container">
             <form action = "" method = "post">
                 <div class="error"><?php echo $error; ?></div>
-                <input type="text" name = "FirstName" placeholder="FirstName"><br><br>
-                <input type="text" name = "LastName" placeholder="LastName"><br><br>
-                <input type="number" name = "telephone" placeholder="telephone"><br><br>
-                <input type="number" name = "homenumber" placeholder="homenumber"><br><br>
-                <input type="text" name = "street" placeholder="street"><br><br>
-                <input type="text" name = "city" placeholder="city"><br><br>
-                <input type="text" name = "subjects" placeholder="subjects"><br><br>
-                <input type="text" name = "modes" placeholder="modes"><br><br>
-                <input type="text" name = "medium" placeholder="medium"><br><br>
-                
-                <input type="submit" name = "next" value="Next"><br><br>
-        </form>
+                <input class = "firstname" type="text" name = "FirstName" placeholder="FirstName"><br><br>
+                <input class = "telephone" type="number" name = "telephone" placeholder="Telephone"><br><br>
+                <input class = "street" type="text" name = "street" placeholder="Street"><br><br>
+                <input class = "subjects" type="text" name = "subjects" placeholder="Subjects"><br><br>
+                <input class = "medium" type="text" name = "medium" placeholder="Medium"><br><br>
+                <input class = "submit" type="submit" name = "next" value="Next"><br><br>
+                <div class="form-container2">
+                    <input class = "lastname" type="text" name = "LastName" placeholder="LastName"><br><br>
+                    <input class = "letterboxnumber" type="number" name = "letterboxnumber" placeholder="Letterboxnumber"><br><br>
+                    <input class = "city" type="text" name = "city" placeholder="City"><br><br>
+                    <input class = "modes" type="text" name = "modes" placeholder="Modes"><br><br>
+                    
+                </div>
+               
+            </form>
+        </div>
     </div>
 </body>
 </html>
