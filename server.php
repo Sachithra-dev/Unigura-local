@@ -58,7 +58,7 @@
                         setcookie('id',mysqli_insert_id($linkDB),time()+60*60*365);
                     }
                     //after sign up redirecting the user to loogedipage.php
-                    header ('Location: loggedInpage.php' );
+                    header ('Location: tutorregistration.php' );
                 }
             }
         }
@@ -93,7 +93,6 @@
             $row = mysqli_fetch_array($result);//get user data from database
 
             if(isset($row)){
-        
                 if(password_verify($password, $row["password"])){ //If password matched
                     $_SESSION['id'] = mysqli_insert_id($linkDB);
                     $_SESSION['name'] = $name;
@@ -101,7 +100,7 @@
                         setcookie('id',mysqli_insert_id($linkDB),time()+60*60*365);
                     }
                     //after sign up redirecting the user to loogedipage.php
-                    header ('Location: loggedInpage.php' );
+                    header ('Location: index.php' );
                 }else{
                     $error2 = "Combination of email/password doesn't matched";
                 };
@@ -123,6 +122,7 @@
         $lesson = mysqli_real_escape_string($linkDB,$_POST['lesson']);
         $rate = mysqli_real_escape_string($linkDB,$_POST['rate']);
         $duration = mysqli_real_escape_string($linkDB,$_POST['duration']);
+        $mode = mysqli_real_escape_string($linkDB,$_POST['mode']);
         
 
 
@@ -145,13 +145,13 @@
             $error3 = "<b>There was error(s)in your form".$error3;
         }
         else{
-            $query = "INSERT INTO classes (subject,lesson,rate,duration,tutorid) VALUES ('$subject','$lesson','$rate','$duration','$tutor')";
+            $query = "INSERT INTO classes (subject,lesson,rate,duration,tutorid,mode) VALUES ('$subject','$lesson','$rate','$duration','$tutor','$mode')";
             $result = mysqli_query($linkDB,$query);
             if(!$result){
                 $error3 = "You are not logged in - Try again Later";
             }
             else{
-                header ('Location: loggedInpage.php' );
+                header ('Location: index.php' );
             }
         }
         
@@ -192,6 +192,68 @@
 
 
 
+    }
+
+    // tutor details
+    $error4 = "";
+
+    if(array_key_exists('next',$_POST)){
+        include('linkdb.php');
+        //taking data from user "
+        $firstName = mysqli_real_escape_string($linkDB,$_POST['FirstName']);
+        $lastName = mysqli_real_escape_string($linkDB,$_POST['LastName']);
+        $telephone = mysqli_real_escape_string($linkDB,$_POST['telephone']);
+        $address = mysqli_real_escape_string($linkDB,$_POST['address']);
+        $street = mysqli_real_escape_string($linkDB,$_POST['Street']);
+        $city = mysqli_real_escape_string($linkDB,$_POST['city']);
+        $district = mysqli_real_escape_string($linkDB,$_POST['District']);
+        $gender = mysqli_real_escape_string($linkDB,$_POST['gender']);
+       
+
+
+        //form validation
+    
+        if(!$firstName){
+            $error4 .= "First Name field is empty<br>";
+        }
+        if(!$lastName){
+            $error4 .= "Last Name field is empty<br>";
+        }
+        if(!$telephone){
+            $error4 .= "Telephone field is empty<br>";
+        }
+        if(!$address){
+            $error4 .= "address field is empty<br>";
+        }
+        if(!$street){
+            $error4 .= "Street field is empty<br>";
+        }
+        if(!$city){
+            $error4 .= "City field is empty<br>";
+        }
+        if(!$district){
+            $error4 .= "district field is empty<br>";
+        }
+        if(!$gender){
+            $error4 .= "gender field is empty<br>";
+        }
+       
+    
+        if($error4){
+            $error4 = "<b>There was error(s)in your form".$error4;
+        }
+        else{
+            $id = $_SESSION['id'];
+            $query = "UPDATE tutor SET Firstname = '$firstname' ,Lastname = '$lastname',Telephone= '$telephone',Address = '$address',Street = '$street' ,City = '$city',District = '$district',Gender ='$gender' WHERE id=$id";
+            $result = mysqli_query($linkDB,$query);
+            if(!$result){
+                $error4 = "You are not logged in - Try again Later";
+            }
+            else{
+                header ('Location: index.php' );
+            }
+        }
+        
     }
 ?>
 
