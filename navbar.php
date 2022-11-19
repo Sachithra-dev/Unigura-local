@@ -24,7 +24,7 @@
             <li><a href="addclass.php">Add Class</a></li>
             <li><a href="Notification">Active Classes</a></li>
             <li><a href="Profile">Profile</a></li>
-            <li><a href="signup.php?logout=1">Logout</a></li>
+            <li><a href="server.php?logout=1">Logout</a></li>
          </ul>
       </nav>
    </body>

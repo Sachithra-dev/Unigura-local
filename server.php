@@ -13,6 +13,7 @@
 
     if(array_key_exists('signup',$_POST)){
         include('linkdb.php');
+        
         //taking data from user 
         $name = mysqli_real_escape_string($linkDB,$_POST['name']);
         $email = mysqli_real_escape_string($linkDB,$_POST['email']);
@@ -40,9 +41,10 @@
             $query = "SELECT id FROM tutor  WHERE email = '$email'";
             $result = mysqli_query($linkDB,$query);
             if (mysqli_num_rows($result)>0){
-                $error = "Your email was already exists<br>";
+                $error = "Your email was already exist<br>";
             }
             else{
+                // header ('Location: tutorregistration.php' );
                 //password encryption
                 $hashedPassword = password_hash($password,PASSWORD_DEFAULT);
                 $query = "INSERT INTO tutor (name,email,password) VALUES ('$name','$email','$hashedPassword')";
@@ -57,13 +59,17 @@
                     if($_POST['stayLoggedIn'] == '1'){
                         setcookie('id',mysqli_insert_id($linkDB),time()+60*60*365);
                     }
+                
                     //after sign up redirecting the user to loogedipage.php
                     header ('Location: tutorregistration.php' );
                 }
-            }
+                    
+                }
+               
         }
-        
     }
+        
+    
     //for user login
 
     $error2 = "";

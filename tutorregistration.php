@@ -1,19 +1,6 @@
 <?php
 
     include('server.php');
-
-    
-    //user can switch between the webpages unless they didnt logout
-    if(array_key_exists('id',$_COOKIE)){
-        $_SESSION['id'] = $_COOKIE['id'];//stay logged in for long time
-    }
-    if(array_key_exists('id',$_SESSION)){
-        //
-    }
-    else{
-        header('Location: index.php');
-    }
-
   
     ?>
 
