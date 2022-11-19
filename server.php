@@ -7,6 +7,7 @@
         unset($_SESSION['id']);
         setcookie('id',"", time() - 60*60);
         $_COOKIE = "";
+        header ('Location: signup.php' );
     }
 
     $error = "";
