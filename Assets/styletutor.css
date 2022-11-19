@@ -1,3 +1,4 @@
+
 body{
     position: relative;
     width: 100%;
@@ -16,6 +17,9 @@ body{
     background-color: #FFFFFF;
     border-radius: 20px;
     grid-template-columns: 1fr 1fr;
+    text-align :center;
+    justify-content : center;
+    align-items:center;
     
 
 }
@@ -129,12 +133,11 @@ h1 {
 
 .error{
     box-sizing: border-box;
-    position: absolute;
-    width:80%;
+    position: relative;
+    width:60%;
     height: 40px;
-    left: 26px;
-    top: 170px;
-    background: #FFFFFF;
+    left: 20%;
+    background: #ffffff;
     border-radius: 5px;
     font-size: 17px;
     padding-left: 12px;
@@ -217,6 +220,4 @@ h1 {
     border: #F7711A;
     align-items: center;
 }
-
-
 

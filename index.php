@@ -1,46 +1,52 @@
 <?php
-    include('server.php');
+
+session_start();
+
+    
+    //user can switch between the webpages unless they didnt logout
+    if(array_key_exists('id',$_COOKIE)){
+        $_SESSION['id'] = $_COOKIE['id'];//stay logged in for long time
+    }
+    if(array_key_exists('id',$_SESSION)){
+        //
+    }
+    else{
+        header('Location: signup.php');
+    }
+
     ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-    <style>
-        .container{
-            text-align :center;
-            justify-content : center;
-            align-items:center;
-        }
-        input{
-            padding:5px
-        }
-        .error{
-            background-color : pink;
-            color : red;
-            width : 300px;
-            margin: 0 auto:
-        }
-    </style>
-</head>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Class Dashboard</title>
 
-<body>
-    <div class="container">
-        <h1>User Registration System</h1>
-        <form action = "" method = "post">
-            <div class="error"><?php echo $error; ?></div>
-            <input class = "username" type="text" name = "name" placeholder="user name"><br><br>
-            <input class = "email" type="email" name = "email" placeholder="email"><br><br>
-            <input class = "password" type="password" name = "password" placeholder="password"><br><br>
-            <input class = "repeatpassword" type="password" name = "repeatpassword" placeholder="Repeat Password"><br><br>
-            <label class ="checkboxlabel" for="checkbox">Keep me logged in</label>
-            <input class ="checkbox" type="checkbox" name = "stayLoggedIn" value= "1"><br><br>
-            <input class="submit" type="submit" name = "signup" value="Sign Up"><br><br>
-            <p>Have account already?<a href='login.php'>login</a></p>
-        </form>
-    </div>
-</body>
+      <link rel="stylesheet" href="Assets\styleclass.css?v=3.6">
+   </head>
+   <?php
+    include('navbar.php');
+        include("linkdb.php");
+        $id = $_SESSION['id'];
+        $sql = "SELECT * FROM classes WHERE tutorid = $id";
+        $result = mysqli_query($linkDB,$sql);
+        if(mysqli_num_rows($result)>0){
+          echo "<div class='container'>";
+          while($row = mysqli_fetch_assoc($result)){
+              echo "<div class='card'><div class='box'><div class='content'><h3>".$row['Lesson'] ."<h3>
+              <p>".$row['Subject']
+              ."</p> <p>Rate(Per Session): LKR <b>"
+              .$row['Rate']
+              ."</b></p><p>Mode of Conducting : "
+              .$row['Mode']
+              ."</p><a>View</a><a>Delete</a></div></div></div>";
+          }
+          echo "</div>";
+      }
+      
+      ?>
+    
+   </body>
+
 </html>
+
+   

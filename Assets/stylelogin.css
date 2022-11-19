@@ -1,7 +1,7 @@
 body{
     position: relative;
     width: 100%;
-    height: 900px;
+    height: 690px;
     background: linear-gradient(180deg, rgba(255, 153, 0, 0.63) 0%, rgba(255, 100, 0, 0.63) 100%);
 
 }
@@ -12,7 +12,7 @@ body{
     width: 70%;
     height: 556px;
     left: 15%;
-    top: 200px;
+    top: 50px;
     background-color: #FFFFFF;
     border-radius: 20px;
     grid-template-columns: 1fr 1fr;
@@ -85,15 +85,14 @@ body{
 
 .login-container .form-container .error{
     box-sizing: border-box;
-    position: absolute;
+    position: relative;
     width:80%;
-    height: 40px;
-    left: 26px;
-    top: 170px;
+    height: fit-content;
     background: #FFFFFF;
     border-radius: 5px;
     font-size: 17px;
     padding-left: 12px;
+    left:26px;
 
     
 }
@@ -104,7 +103,7 @@ body{
     width: 80%;
     height: 45px;
     left: 26px;
-    top: 50px;
+    top: 30px;
     background: #FFFFFF;
     border: 2px solid #FF8125;
     border-radius: 5px;
@@ -120,7 +119,7 @@ body{
     width: 80%;
     height: 45px;
     left: 26px;
-    top: 60px;
+    top: 30px;
     background: #FFFFFF;
     border: 2px solid #FF8125;
     border-radius: 5px;
@@ -135,7 +134,7 @@ body{
     width: 231px;
     height: 52px;
     left: 65px;
-    top: 65px;
+    top: 40px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -143,10 +142,7 @@ body{
     line-height: 24px;
     display: flex;
     align-items: center;
-
     color: #000000;
-
-    
 }
 
 
@@ -155,24 +151,21 @@ body{
     width: 179px;
     height: 54px;
     left: 26px;
-    top: 50px;
+    top: 0px;
     font-size: 20px;
-    background: #F7711A;
+    background:linear-gradient(180deg, rgba(255, 153, 0, 0.63) 0%, rgba(255, 100, 0, 0.63) 100%);
     border-radius: 10px;
     border: #F7711A;
     
 }
 
 .login-container .form-container .checkbox{
-    box-sizing: border-box;
-
+ 
     position: relative;
     width: 26px;
     height: 25px;
     left: 26.1px;
-    top: 25px;
-
-    background: #FFFFFF;
+    background: #f81f1f;
     border: 1px solid #000000;
 }
 
