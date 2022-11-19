@@ -195,9 +195,69 @@
         }else{
             echo "Your cannot upload files of this type ";
         }
+    }
+
+// tutor details
+    $error4 = "";
+
+    if(array_key_exists('next',$_POST)){
+        include('linkdb.php');
+        //taking data from user 
+        $firstName = mysqli_real_escape_string($linkDB,$_POST['FirstName']);
+        $lastName = mysqli_real_escape_string($linkDB,$_POST['LastName']);
+        $telephone = mysqli_real_escape_string($linkDB,$_POST['telephone']);
+        $letterboxnumber = mysqli_real_escape_string($linkDB,$_POST['letterboxnumber']);
+        $street = mysqli_real_escape_string($linkDB,$_POST['street']);
+        $city = mysqli_real_escape_string($linkDB,$_POST['city']);
+        $subject = mysqli_real_escape_string($linkDB,$_POST['subjects']);
+        $modes = mysqli_real_escape_string($linkDB,$_POST['modes']);
+        $medium = mysqli_real_escape_string($linkDB,$_POST['medium']);
 
 
-
+        //form validation
+    
+        if(!$FirstName){
+            $error4 .= "First Name field is empty<br>";
+        }
+        if(!$LastName){
+            $error4 .= "Last Name field is empty<br>";
+        }
+        if(!$telephone){
+            $error4 .= "Telephone field is empty<br>";
+        }
+        if(!$letterboxnumber){
+            $error4 .= "LetterBox Number field is empty<br>";
+        }
+        if(!$street){
+            $error4 .= "Street field is empty<br>";
+        }
+        if(!$city){
+            $error4 .= "City field is empty<br>";
+        }
+        if(!$subject){
+            $error4 .= "Subject field is empty<br>";
+        }
+        if(!$modes){
+            $error4 .= "Modes field is empty<br>";
+        }
+        if(!$medium){
+            $error4 .= "Medium field is empty<br>";
+        }
+    
+        if($error4){
+            $error4 = "<b>There was error(s)in your form".$error4;
+        }
+        else{
+            $query = "INSERT INTO tutor (First_Name,Last_Name,Telephone,LetterBox_Number,Street,City,Subjects,Modes,Medium) VALUES ('$firstName','$lastName','$telephone','$letterboxnumber','$street','$city','$subject','$modes','$medium')";
+            $result = mysqli_query($linkDB,$query);
+            if(!$result){
+                $error4 = "You are not logged in - Try again Later";
+            }
+            else{
+                echo("  Tutor details are successfully added");
+            }
+        }
+        
     }
 
     // tutor details

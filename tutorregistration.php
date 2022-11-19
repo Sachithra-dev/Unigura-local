@@ -18,6 +18,7 @@
 <body>
    <div class="container">
         <h1>Tutor Details</h1>
+
         <div class="error"><?php echo $error; ?></div>
         <div class="form-container">
             <form action = "" method = "post">
@@ -32,6 +33,7 @@
                     <input class = "city" type="text" name = "city" placeholder="City"><br><br>
                     <input class = "modes" type="text" name = "gender" placeholder="Gender"><br><br>
                 </div>
+
             </form>
         </div>
     </div>
